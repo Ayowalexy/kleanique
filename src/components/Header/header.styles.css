@@ -1,0 +1,59 @@
+.header_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_image {
+    width: 175px;
+    height: 68px;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_link {
+    font-weight: 400px;
+    color: #605E84;
+    font-size: 16px;
+}
+
+.active {
+    color: #1D1772;
+    font-weight: 600;
+}
+
+
+body .container .link,
+html .container .link {
+    color: #605E84;
+    font-size: 16px;
+    margin: 0px 30px 0px 30px;
+    text-decoration: none;
+    position: relative;
+}
+
+body .container .link:after,
+html .container .link:after {
+    bottom: -4px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    background: #000;
+    opacity: 0.6;
+    transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+    width: 0;
+}
+
+body .container .link:hover:after,
+html .container .link:hover:after {
+    width: 100%;
+    opacity: 0.9;
+}

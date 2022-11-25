@@ -1,0 +1,119 @@
+.project_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.project_container .project_container_header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+
+    color: #ED5955;
+}
+
+.project_container .project_container_text {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #8B8B8C;
+
+}
+
+.carousel_container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.carousel_image {
+    width: 100%;
+    height: 534px;
+    border-radius: 10px;
+}
+
+.project_testimonials {
+    width: 85%;
+}
+
+.project_testimonials .project_testimonials_text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    line-height: 72px;
+    padding-bottom: 50px;
+    color: #4DBDEF;
+    margin-top: 100px;
+
+}
+
+.box_card {
+    width: 750px;
+    height: 164px;
+    background: #FFFFFF;
+    border: 1px solid #1D7ECF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.box_card .image_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 20%;
+}
+
+.box_card .image_box .box_image {
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+}
+
+.box_card .image_box .image_text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    color: #1D1772;
+}
+
+.project_text_2_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%;
+    gap: 20px;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.project_box_container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}

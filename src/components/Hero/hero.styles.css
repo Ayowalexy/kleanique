@@ -1,0 +1,89 @@
+.hero_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+}
+
+.hero_image {
+    height: 100%;
+    width: 55%;
+}
+
+.hero_text {
+    padding-left: 70px;
+}
+
+.header_text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 111%;
+    color: #4DBDEF;
+}
+
+.header_text_2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-top: 15px;
+    color: #838383;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    width: 218px;
+    height: 65px;
+    border-radius: 13px;
+
+}
+
+.button-2 {
+    color: #fff;
+    border: 1px solid #ED5955;
+    background-image: -webkit-linear-gradient(30deg, #ED5955 50%, transparent 50%);
+    background-image: linear-gradient(30deg, #ED5955 50%, transparent 50%);
+    background-size: 530px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.button-1 {
+    color: #ED5955;
+    border: 1px solid #ED5955;
+    background-image: -webkit-linear-gradient(30deg, #ED5955 50%, transparent 50%);
+    background-image: linear-gradient(30deg, #ED5955 50%, transparent 50%);
+    background-size: 530px;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+
+.button-1:hover {
+    background-position: 0%;
+    color: #fff;
+}
+
+.button-2:hover {
+    background-position: 100%;
+    color: #ED5955;
+}
