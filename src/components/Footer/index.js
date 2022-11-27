@@ -8,7 +8,7 @@ import Logo2 from '../../assets/logo_2.png'
 
 const Footer = () => {
     return (
-        <div className="footer_container">
+        <div className="footer_container" id="contact">
             <div className="footer_box">
                 <div className="footer_icon_cont">
                     <div className="footer_icon">

@@ -24,7 +24,7 @@ const Image = styled.div`
 
 `
 
-const Box = styled.div`
+export const Box = styled.div`
     width: 750px;
     height: 184px;
     background: #FFFFFF;
@@ -62,8 +62,8 @@ const Project = () => {
     }, []);
 
     return (
-        <div className="project_container">
-            <div className="project_container_header">Projects Done</div>
+        <div className="project_container" id="contact_2">
+            <div className="project_container_header" >Projects Done</div>
             <div className="project_container_text">Here are some cleaning service done for our clients in South Africa</div>
 
             <div className="carousel_container">

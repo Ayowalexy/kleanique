@@ -108,10 +108,9 @@ const Services = () => {
 
                 <div className="service_box">
                     <img src={Image2} className='service_image' />
-                    <div className="services_text_1">Domestic services</div>
+                    <div className="services_text_1">Commercial services</div>
                     <div className="services_text_2 services_text_2_type_2">
-                        Garden Services, Home Cleaining, Spring Cleaning, Deep Cleaning, One-time Cleaning, Move in/out see more
-                    </div>
+                    General Office Cleaning, Office Disinfection, Shop Floor Cleaning see more                    </div>
                 </div>
             </div>
 

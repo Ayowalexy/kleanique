@@ -1,0 +1,46 @@
+.domestic_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.domestic_container_header {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
+    margin-top: 100px;
+    color: #ED5955;
+    /* margin-bottom: 100px; */
+}
+
+.colored {
+    color: #4DBDEF !important;
+}
+
+.c_services {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 40px;
+    color: #646466;
+}
+
+.colored_bg {
+    background-color: #4DBDEF !important;
+}
+
+.colored_bg_ {
+    cursor: pointer;
+    background-color: #ED5955;
+}
+
+.c_bg {
+    border: 1px solid #4DBDEF !important;
+
+}

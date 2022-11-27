@@ -7,6 +7,7 @@ import Services from '../../components/Services';
 import Project from '../../components/Projects';
 import ContactUs from '../../components/Contact';
 import Footer from '../../components/Footer';
+import Layout from '../../components/Layout';
 import './home.styles.css';
 
 
@@ -14,16 +15,15 @@ import './home.styles.css';
 
 const Home = () => {
     return (
-        <div>
-            <div className='home'>
-                <Header />
+        <Layout>
+            <div>
+                <Hero />
+                <Services />
+                <Project />
+                <ContactUs />
+                <Footer />
             </div>
-            <Hero />
-            <Services />
-            <Project />
-            <ContactUs />
-            <Footer />
-        </div>
+        </Layout>
     )
 }
 
