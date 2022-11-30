@@ -5,13 +5,14 @@ import Image2 from '../../assets/clean2.png'
 import ServiceImage from '../../assets/service.png'
 import Star from '../../assets/svg/star.svg'
 import gsap from "gsap";
-
+import { useNavigate } from "react-router-dom";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 
 
 const Services = () => {
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -98,7 +99,7 @@ const Services = () => {
         <div className="services">
             <div className="header_text">Our Services</div>
             <div className="header_box">
-                <div className="service_box" id="section_1">
+                <div className="service_box" id="section_1" onClick={() => navigate('/domestic')}>
                     <img src={Image1} className='service_image' />
                     <div className="services_text_1">Domestic services</div>
                     <div className="services_text_2">
@@ -106,7 +107,7 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div className="service_box">
+                <div className="service_box" onClick={() => navigate('/commercial')}>
                     <img src={Image2} className='service_image' />
                     <div className="services_text_1">Commercial services</div>
                     <div className="services_text_2 services_text_2_type_2">
@@ -123,7 +124,7 @@ const Services = () => {
                         <div className="service_container_box">
                             <div className="service_header" id='service_header_'>
                                 <img src={Star} />
-                                <div>OUR SERVICES</div>
+                                <div>OUR VISION</div>
                             </div>
                             <div className="service_subText" >
                                 All services are tailored to the client’s specific needs and convenience.
@@ -134,7 +135,7 @@ const Services = () => {
                         <div className="service_container_box">
                             <div className="service_header">
                                 <img src={Star} />
-                                <div>OUR VISION</div>
+                                <div>OUR SERVICES</div>
                             </div>
                             <div className="services_text_2_type_2" id="services_text_2_type_2_">
                                 We strive to deliver quality service that spurs ease, comfort, and freshness into the world.
@@ -147,11 +148,10 @@ const Services = () => {
                         <div className="service_container_box">
                             <div className="service_header">
                                 <img src={Star} />
-                                <div>OUR MISSION</div>
+                                <div>LEADING TECHNOLOGIES</div>
                             </div>
                             <div className="service_subText">
-                                Our mission is to provide innovative products and quality services that care for today and tomorrow.
-                            </div>
+                            We use safe hospital-grade disinfectants, HEPA filtrations and microfiber cleaning cloths.                            </div>
                         </div>
                     </div>
 

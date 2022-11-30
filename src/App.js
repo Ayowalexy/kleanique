@@ -4,6 +4,7 @@ import Home from './pages/Home/Index';
 import Domestic from './pages/Domestic-services';
 import Commercial from './pages/Domestic-services/commercial-services';
 import { Routes, Route } from 'react-router-dom';
+import { PageContextProvider } from './components/context';
 import Preloader from './components/Preloader';
 
 
@@ -20,11 +21,13 @@ function App() {
     <div>
       {show ? <Preloader /> :
         (
-          <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/domestic' element={<Domestic />} />
-            <Route path='/commercial' element={<Commercial />} />
-          </Routes>
+          <PageContextProvider>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/domestic' element={<Domestic />} />
+              <Route path='/commercial' element={<Commercial />} />
+            </Routes>
+          </PageContextProvider>
         )
       }
     </div>

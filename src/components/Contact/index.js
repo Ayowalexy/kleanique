@@ -150,15 +150,6 @@ const ContactUs = () => {
                                 placeholder='Enter Phone Number'
                             />
 
-                            <Select
-                                value={type}
-                                onChange={(e) => setType(e.target.value)}
-                            >
-                                <option value='Message 1'>Message 1</option>
-                                <option value='Message 2'>Message 2</option>
-
-                            </Select>
-
                             <TextArea value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Enter message' />
 
                             <Button>

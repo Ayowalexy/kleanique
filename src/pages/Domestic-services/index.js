@@ -16,8 +16,8 @@ import { Box } from '../../components/Projects';
 import Modal from '../../components/Modal';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai'
-
-
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const Image = styled.div`
@@ -33,6 +33,7 @@ const Image = styled.div`
 
 const Domestic = () => {
 
+    const navigate = useNavigate()
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
 
@@ -41,6 +42,10 @@ const Domestic = () => {
         setName(val)
         setActive(true)
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return (
         <Layout>
@@ -152,7 +157,7 @@ const Domestic = () => {
                         <Image url={Image6} />
                     </div>
 
-                    <div className='commercial_serrvices'>
+                    <div className='commercial_serrvices' onClick={() => navigate('/commercial')}>
                         Commercial Services
                     </div>
                     <div className='revs'>

@@ -13,8 +13,8 @@ import Val from '../../assets/val.png';
 import Footer from '../../components/Footer';
 import { Box } from '../../components/Projects';
 import { AiFillStar } from 'react-icons/ai'
-
-
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const Image = styled.div`
@@ -32,12 +32,17 @@ const Commercial = () => {
 
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
+    const navigate = useNavigate();
 
     const handleClick = (val) => {
         window.scrollTo(0, 0)
         setName(val)
         setActive(true)
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return (
         <Layout>
@@ -113,7 +118,7 @@ const Commercial = () => {
                     </div>
 
 
-                    <div className='commercial_serrvices colored_bg_'>
+                    <div className='commercial_serrvices colored_bg_' onClick={() => navigate('/domestic')}>
                         Domestic Services
                     </div>
                     <div className='revs'>

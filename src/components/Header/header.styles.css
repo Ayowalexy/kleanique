@@ -8,6 +8,7 @@
 .logo_image {
     width: 175px;
     height: 68px;
+    cursor: pointer;
 }
 
 .links {

@@ -3,6 +3,7 @@ import './footer.styles.css';
 import Phone from '../../assets/svg/phone.svg'
 import Email from '../../assets/svg/email.svg'
 import FB from '../../assets/svg/fb.svg'
+import Location from '../../assets/location.png'
 import Logo2 from '../../assets/logo_2.png'
 
 
@@ -13,23 +14,30 @@ const Footer = () => {
                 <div className="footer_icon_cont">
                     <div className="footer_icon">
                         <img src={Phone} />
-                        <div>08145405006</div>
+                        <div> 063 260 2448</div>
                     </div>
                     <div className="footer_icon">
                         <img src={FB} />
                         <div>Kleanique Cleaning service</div>
                     </div>
                 </div>
-                <img src={Logo2} className='footer_image'/>
-
-                <div className="footer_icon">
-                    <img src={Email} />
-                    <div>info@kleanique.co.za</div>
+                <img src={Logo2} className='footer_image' />
+                <div className="footer_icon_cont">
+                    <div className="footer_icon">
+                        <img src={Email} />
+                        <div>info@kleanique.co.za</div>
+                    </div>
+                    <div className="footer_icon">
+                        <img src={Location} />
+                        <div>150 Langebrink Avenue,<br /> Lyttelton Manor, Centurion<br /> (0157)
+                        </div>
+                    </div>
                 </div>
+               
             </div>
 
             <div className="footer_underline" />
-            <div className="footer_power">Powered by Ar ray Holdings</div>
+            <div className="footer_power">Powered by AR RAY Holdings</div>
         </div>
     )
 }

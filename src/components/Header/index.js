@@ -1,13 +1,16 @@
 import React from 'react';
 import Logo from '../../assets/logo_1.png'
-import './header.styles.css'
-import { Link } from 'react-router-dom';
+import './header.styles.css';
+import { usePageContext } from '../context';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const { setPage } = usePageContext()
     return (
         <div className='header_container'>
-            <img src={Logo} className='logo_image' />
+            <img onClick={() => navigate('/')} src={Logo} className='logo_image' />
 
             <div className='header_links'>
                 <div className="container">
@@ -21,7 +24,10 @@ const Header = () => {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </a>
-                        <a href="#contact_2" className="link header_link">Project done</a>
+                        <a href="#contact_2" className="link header_link" onClick={() => {
+                            setPage('#contact_2')
+                            navigate('/')
+                        }}>Projects done</a>
                         <a href="#contact" className="link header_link">Contact Us</a>
 
                     </div>

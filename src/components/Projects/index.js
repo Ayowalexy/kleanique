@@ -3,6 +3,8 @@ import Slide1 from '../../assets/slide1.png';
 import Slide2 from '../../assets/slide2.png'
 import Slide3 from '../../assets/slide3.png'
 import Slide4 from '../../assets/slide4.png'
+import Slide5 from '../../assets/slide5.png'
+import Location from '../../assets/l2.png'
 import Carousel from "framer-motion-carousel";
 import Val from '../../assets/val.png';
 import styled from "@emotion/styled";
@@ -68,10 +70,18 @@ const Project = () => {
 
             <div className="carousel_container">
                 <Carousel>
-                    {[Slide1, Slide2, Slide3, Slide4].map((element, idx) => (
+                    {[Slide1, Slide2, Slide3, Slide4, Slide5].map((element, idx) => (
                         <Image url={element} key={idx} />
                     ))}
                 </Carousel>
+
+            </div>
+            <div className="l_p">
+                <img src={Location} />
+                <div>
+                    Gauteng, South Africa
+                </div>
+
             </div>
 
             <div className="project_testimonials">
@@ -83,16 +93,18 @@ const Project = () => {
                             <Box key={_} className='anime' id="anime_" align={_ % 2 === 0 ? 'flex-end' : 'flex-start'}>
                                 <div className="image_box">
                                     <img src={Val} className='box_image' />
-                                    <div className="image_text">Mr Wakanda Walters</div>
                                 </div>
 
                                 <div className="project_text_2_container">
                                     <div>
-                                        I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda
-                                    </div>
+                                        I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
                                     <div className="rating">
                                         {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
                                     </div>
+                                    <div className="image_text_cont">
+                                        <div className="image_text">Mr Wakanda Walters</div>
+                                    </div>
+
                                 </div>
                             </Box>
                         ))
