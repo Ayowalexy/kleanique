@@ -24,7 +24,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
 const Image = styled.div`
-    width: 37%;
+    width: 45%;
     height: 350px;
     background-image: url(${props => props.url});
     background-size: cover;
@@ -73,7 +73,7 @@ const Domestic = () => {
 
                     <div className='card_container'>
                         <Image url={Garden} />
-                        <div className='card_box'>
+                        <div className='card_box card__'>
                             <div className='card_header'>Garden Services</div>
                             <ul>
                                 <li>Garden perimeter cleaning</li>
@@ -106,7 +106,7 @@ const Domestic = () => {
 
                     <div className='card_container'>
                         <Image url={Image3} />
-                        <div className='card_box'>
+                        <div className='card_box card__' >
                             <div className='card_header'>Spring Cleaning Services</div>
                             <ul>
                                 <li>Cleaning and organising your refrigerator</li>
@@ -122,9 +122,9 @@ const Domestic = () => {
                         <div className='card_box'>
                             <div className='card_header'>Deep Cleaning Services</div>
                             <ul>
-                                <li>Dusting of furniture and other surfaces such as electronic screens and lampshades)</li>
-                                <li>Straightening of rooms (clothes folded and packed away, picking-up of toys, etc.)</li>
-                                <li>Wiping down of surfaces such as coffee tables, end tables and shelving units</li>
+                                <li>Dusting of furniture and other surfaces such <br />as electronic screens and lampshades)</li>
+                                <li>Straightening of rooms (clothes folded and <br /> packed away, picking-up of toys, etc.)</li>
+                                <li>Wiping down of surfaces such as coffee tables,<br />  end tables and shelving units</li>
                             </ul>
                             <button onClick={() => handleClick('Deep Cleaning Services', Image8)} >
                                 Get a quote
@@ -135,7 +135,7 @@ const Domestic = () => {
 
                     <div className='card_container'>
                         <Image url={Image5} />
-                        <div className='card_box'>
+                        <div className='card_box card__'>
                             <div className='card_header'>One-time cleaning Services</div>
                             <ul>
                                 <li>You’re planning an event</li>
@@ -153,7 +153,7 @@ const Domestic = () => {
                         <div className='card_box'>
                             <div className='card_header'>Move-in/out Cleaning Services</div>
                             <ul>
-                                <li>Dusting of furniture and other surfaces such as electronic screens and lampshades)</li>
+                                <li>Dusting of furniture and other surfaces such as <br />electronic screens and lampshades)</li>
                             </ul>
                             <button onClick={() => handleClick('Move-In/Move-Out Cleaning Services', Image6)} >
                                 Get a quote

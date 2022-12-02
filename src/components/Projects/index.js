@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slide1 from '../../assets/slide1.png';
 import Slide2 from '../../assets/slide2.png'
 import Slide3 from '../../assets/slide3.png'
@@ -51,6 +51,7 @@ export const Box = styled.div`
 
 const Project = () => {
 
+    const [idx, currentIndex] = useState(0);
 
     useEffect(() => {
         gsap.fromTo('.anime', {
@@ -71,37 +72,65 @@ const Project = () => {
 
     }, []);
 
+  
     return (
         <div className="project_container" id="contact_2">
             <div className="project_container_header" >Projects Done</div>
             <div className="project_container_text">Here are some cleaning service done for our clients in South Africa</div>
 
             <div className="carousel_container">
-                <Carousel>
+                <Carousel renderDots={() => null}>
                     {[Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8].map((element, idx) => (
-                        <Image url={element} key={idx}>
-                            <div className="before_cont">
-                                <div className="before_box"/>
-                                <div className="before">
+                        <div>
+                            <Image url={element} key={idx}>
+                                <div className="before_cont">
+                                    <div className="before_box" style={{ backgroundColor: idx % 2 == 0 ? "#FBD6D4" : "#5EFFC9" }} />
+                                    <div className="before">
+                                        {
+                                            idx % 2 === 0
+                                                ? 'Before'
+                                                : 'After'
+                                        }
+                                    </div>
+                                </div>
+
+                            </Image>
+                            <div className="l_p">
+                                <img src={Location} />
+                                <div style={{
+                                    color:
+                                        idx === 0 || idx == 1
+                                            ? '#190BE2'
+                                            : idx === 2 || idx == 3
+                                                ? '#1D7ECF'
+                                                : idx === 4 || idx === 5
+                                                    ? '#ED5955'
+                                                    : idx === 6 || idx === 7
+                                                        ? '#190BE2'
+                                                        : null
+                                }}>
                                     {
-                                    idx % 2 === 0
-                                    ? 'Before'
-                                    : 'After'
+                                        idx === 0 || idx == 1
+                                            ? 'Pretoria, SouthAfrica'
+                                            : idx === 2 || idx == 3
+                                                ? "Valhalla"
+                                                : idx === 4 || idx === 5
+                                                    ? "Centurion"
+                                                    : idx === 6 || idx === 7
+                                                        ? "Pretoria"
+                                                        : null
                                     }
                                 </div>
+
                             </div>
-                        </Image>
-                    ))}
+
+                        </div>
+                    )
+                    )}
                 </Carousel>
 
             </div>
-            <div className="l_p">
-                <img src={Location} />
-                <div>
-                    Pretoria, SouthAfrica
-                </div>
 
-            </div>
 
             <div className="project_testimonials">
                 <div className="project_testimonials_text">See what our clients are saying</div>

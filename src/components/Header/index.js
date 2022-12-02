@@ -28,7 +28,7 @@ const Header = () => {
                             setPage('#contact_2')
                             navigate('/')
                         }}>Projects done</a>
-                        <a href="#contact" className="link header_link">Contact Us</a>
+                        <a href="#contact" className="link header_link">Contact us</a>
 
                     </div>
                 </div>

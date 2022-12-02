@@ -22,7 +22,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
 const Image = styled.div`
-    width: 37%;
+    width: 45%;
     height: 350px;
     background-image: url(${props => props.url});
     background-size: cover;
@@ -74,7 +74,7 @@ const Commercial = () => {
                     </div>
                     <div className='card_container c_bg'>
                         <Image url={Image2} />
-                        <div className='card_box'>
+                        <div className='card_box card__'>
                             <div className='card_header colored'>General Office cleaning Services</div>
                             <ul>
                                 <li>Horizon Splash Polishing</li>
@@ -92,7 +92,7 @@ const Commercial = () => {
 
                     <div className='card_container c_bg'>
                         <div className='card_box'>
-                            <div className='card_header colored'>Office Disinfection Services</div>
+                            <div className='card_header colored'>Office Disinfection<br /> Services</div>
                             <ul>
                                 <li>Surface disinfecting</li>
                                 <li>Fogging surfaces.</li>
@@ -109,7 +109,7 @@ const Commercial = () => {
 
                     <div className='card_container c_bg'>
                         <Image url={Image8} />
-                        <div className='card_box'>
+                        <div className='card_box card__'>
                             <div className='card_header colored'>Spring Cleaning Services</div>
                             <ul>
                                 <li>Wet and Vacuum.</li>
