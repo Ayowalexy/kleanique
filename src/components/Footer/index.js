@@ -21,7 +21,9 @@ const Footer = () => {
                         <div>Kleanique Cleaning service</div>
                     </div>
                 </div>
-                <img src={Logo2} className='footer_image' />
+                <div className="f_image">
+                    <img src={Logo2} className='footer_image' />
+                </div>
                 <div className="footer_icon_cont">
                     <div className="footer_icon">
                         <img src={Email} />
@@ -33,7 +35,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-               
+
             </div>
 
             <div className="footer_underline" />

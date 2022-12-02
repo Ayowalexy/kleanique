@@ -10,14 +10,17 @@ import Image3 from '../../assets/clean_3.png'
 import Image4 from '../../assets/clean_4.png'
 import Image5 from '../../assets/clean_5.png'
 import Image6 from '../../assets/clean_6.png'
+import Image8 from '../../assets/clean_8.png'
+
 import Val from '../../assets/val.png';
 import Footer from '../../components/Footer';
 import { Box } from '../../components/Projects';
-import Modal from '../../components/Modal';
+import CModal from '../../components/Modal';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
 const Image = styled.div`
@@ -36,15 +39,17 @@ const Domestic = () => {
     const navigate = useNavigate()
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
+    const [image, setImage] = useState("")
 
-    const handleClick = (val) => {
-        window.scrollTo(0,0)
+    const handleClick = (val, img) => {
+        // window.scrollTo(0, 0)
         setName(val)
+        setImage(img)
         setActive(true)
     }
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }, [])
 
     return (
@@ -75,7 +80,7 @@ const Domestic = () => {
                                 <li>General garden services</li>
                                 <li>Topiary Services</li>
                             </ul>
-                            <button onClick={() => handleClick('Garden Services')} >
+                            <button onClick={() => handleClick('Garden Services', Garden)} >
                                 Get a quote
                             </button>
                         </div>
@@ -90,7 +95,7 @@ const Domestic = () => {
                                 <li>When you're moving in or out of your home.</li>
                                 <li>Or if you just want your house to sparkle.</li>
                             </ul>
-                            <button onClick={() => handleClick('Home Cleaning Services')} >
+                            <button onClick={() => handleClick('Home Cleaning Services', Image2)} >
                                 Get a quote
                             </button>
                         </div>
@@ -106,7 +111,7 @@ const Domestic = () => {
                             <ul>
                                 <li>Cleaning and organising your refrigerator</li>
                             </ul>
-                            <button onClick={() => handleClick('Spring Cleaning Services')} >
+                            <button onClick={() => handleClick('Spring Cleaning Services', Image3)} >
                                 Get a quote
                             </button>
                         </div>
@@ -121,11 +126,11 @@ const Domestic = () => {
                                 <li>Straightening of rooms (clothes folded and packed away, picking-up of toys, etc.)</li>
                                 <li>Wiping down of surfaces such as coffee tables, end tables and shelving units</li>
                             </ul>
-                            <button onClick={() => handleClick('Deep Cleaning Services')} >
+                            <button onClick={() => handleClick('Deep Cleaning Services', Image8)} >
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image4} />
+                        <Image url={Image8} />
                     </div>
 
                     <div className='card_container'>
@@ -133,12 +138,12 @@ const Domestic = () => {
                         <div className='card_box'>
                             <div className='card_header'>One-time cleaning Services</div>
                             <ul>
-                                <li>For that special event you've been planning for.</li>
-                                <li>When you're moving in or out of your home.</li>
-                                <li>Or if you just want your house to sparkle.</li>
+                                <li>You’re planning an event</li>
+                                <li>You’re moving out or into a new home.</li>
+                                <li>You just want your house to sparkle</li>
 
                             </ul>
-                            <button onClick={() => handleClick('One-time cleaning Services')} >
+                            <button onClick={() => handleClick('One-time cleaning Services', Image5)} >
                                 Get a quote
                             </button>
                         </div>
@@ -150,7 +155,7 @@ const Domestic = () => {
                             <ul>
                                 <li>Dusting of furniture and other surfaces such as electronic screens and lampshades)</li>
                             </ul>
-                            <button onClick={() => handleClick('Move-in/out Cleaning Services')} >
+                            <button onClick={() => handleClick('Move-In/Move-Out Cleaning Services', Image6)} >
                                 Get a quote
                             </button>
                         </div>
@@ -158,29 +163,31 @@ const Domestic = () => {
                     </div>
 
                     <div className='commercial_serrvices' onClick={() => navigate('/commercial')}>
-                        Commercial Services
+                        <div>Commercial Services</div>
+                        <div className='arrow_box'>
+                            <MdKeyboardArrowRight fill='#4DBDEF' />
+                        </div>
                     </div>
                     <div className='revs'>
                         Client Reviews
                     </div>
 
                     <div className="project_testimonials">
+
                         <div className="project_box_container">
                             {
                                 [1, 2, 3].map(_ => (
-                                    <Box key={_} className='anime' id="anime_" align={_ % 2 === 0 ? 'flex-end' : 'flex-start'}>
-                                        <div className="image_box">
-                                            <img src={Val} className='box_image' />
-                                            <div className="image_text">Mr Wakanda Walters</div>
-                                        </div>
-
+                                    <Box key={_} className='anime' id="anime_">
                                         <div className="project_text_2_container">
                                             <div>
-                                                I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda
-                                            </div>
+                                                I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
                                             <div className="rating">
                                                 {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
                                             </div>
+                                            <div className="image_text_cont">
+                                                <div className="image_text">Mr Wakanda Walters</div>
+                                            </div>
+
                                         </div>
                                     </Box>
                                 ))
@@ -192,7 +199,7 @@ const Domestic = () => {
 
                 </div>
             </div>
-            <Modal name={name} type='domestic' active={active} setActive={setActive} />
+            <CModal image={image} name={name} type='domestic' active={active} setActive={setActive} />
         </Layout>
     )
 }

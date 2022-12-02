@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import './services.styles.css'
 import Image1 from '../../assets/clean.png'
 import Image2 from '../../assets/clean2.png'
@@ -13,6 +13,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
     const navigate = useNavigate();
+    const [seeMore, setSeeMore] = useState(false);
+    const [seeMore_2, setSeeMore_2] = useState(false)
+
 
 
     useEffect(() => {
@@ -99,19 +102,20 @@ const Services = () => {
         <div className="services">
             <div className="header_text">Our Services</div>
             <div className="header_box">
-                <div className="service_box" id="section_1" onClick={() => navigate('/domestic')}>
-                    <img src={Image1} className='service_image' />
-                    <div className="services_text_1">Domestic services</div>
+                <div style={{ height: seeMore ? '490px' : "408px" }} className="service_box" id="section_1" >
+                    <img src={Image1} className='service_image' onClick={() => navigate('/domestic')} />
+                    <div className="services_text_1" onClick={() => navigate('/domestic')}>Domestic services</div>
                     <div className="services_text_2">
-                        Garden Services, Home Cleaining, Spring Cleaning, Deep Cleaning, One-time Cleaning, Move in/out see more
+                        Garden Services, Home Cleaining, Spring Cleaning, Deep Cleaning, One-time Cleaning, Move in/out <span onClick={() => setSeeMore(!seeMore)} style={{ color: 'red' }}>{seeMore ? 'see less' : 'see more'}</span>
                     </div>
                 </div>
 
-                <div className="service_box" onClick={() => navigate('/commercial')}>
-                    <img src={Image2} className='service_image' />
-                    <div className="services_text_1">Commercial services</div>
+                <div className="service_box" style={{ height: seeMore_2 ? '490px' : "408px" }} >
+                    <img src={Image2} className='service_image' onClick={() => navigate('/commercial')} />
+                    <div className="services_text_1" onClick={() => navigate('/commercial')}>Commercial services</div>
                     <div className="services_text_2 services_text_2_type_2">
-                    General Office Cleaning, Office Disinfection, Shop Floor Cleaning see more                    </div>
+                        General Office Cleaning, Office Disinfection, Shop Floor Cleaning  <span onClick={() => setSeeMore_2(!seeMore_2)} style={{ color: 'red' }}>{seeMore_2 ? 'see less' : 'see more'}</span>
+                    </div>
                 </div>
             </div>
 
@@ -127,8 +131,7 @@ const Services = () => {
                                 <div>OUR VISION</div>
                             </div>
                             <div className="service_subText" >
-                                All services are tailored to the client’s specific needs and convenience.
-                                We provide a wide range of services at competitive prices, at flexible working hours and schedules.
+                                We strive to deliver quality service that spurs ease, comfort, and freshness into the world.
                             </div>
                         </div>
 
@@ -138,7 +141,8 @@ const Services = () => {
                                 <div>OUR SERVICES</div>
                             </div>
                             <div className="services_text_2_type_2" id="services_text_2_type_2_">
-                                We strive to deliver quality service that spurs ease, comfort, and freshness into the world.
+                                All services are tailored to the client’s specific needs and convenience.
+                                We provide a wide range of services at competitive prices, at flexible working hours and schedules.
                             </div>
                         </div>
                     </div>
@@ -151,7 +155,7 @@ const Services = () => {
                                 <div>LEADING TECHNOLOGIES</div>
                             </div>
                             <div className="service_subText">
-                            We use safe hospital-grade disinfectants, HEPA filtrations and microfiber cleaning cloths.                            </div>
+                                We use safe hospital-grade disinfectants, HEPA filtrations and microfiber cleaning cloths.                            </div>
                         </div>
                     </div>
 

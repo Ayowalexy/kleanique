@@ -29,6 +29,8 @@
     line-height: 24px;
     padding: 40px;
     color: #646466;
+    text-align: center;
+    width: 75%;
 }
 
 .colored_bg {

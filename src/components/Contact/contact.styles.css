@@ -54,3 +54,16 @@
     color: #194584;
     margin-top: 60px;
 }
+
+.address__ {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 275;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    padding-bottom: 20px;
+    text-align: center;
+
+    color: #194584;
+}

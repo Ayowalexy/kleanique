@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HeroImage from '../../assets/hero.png';
-import Modal from "../Modal";
+import CModal from "../Modal";
 import { usePageContext } from "../context";
 import { useLocation, useNavigate } from 'react-router-dom'
 import './hero.styles.css'
@@ -46,7 +46,7 @@ const Hero = () => {
 
             </div>
             <img src={HeroImage} className='hero_image' />
-            <Modal name={name} type='domestic' active={active} setActive={setActive} />
+            <CModal name={name} type='domestic' active={active} setActive={setActive} />
 
         </div>
     )

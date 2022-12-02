@@ -8,8 +8,10 @@
 
 .modal_box {
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    height: fit-content;
+    /* background-color: rgba(0, 0, 0, 0.5); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +19,8 @@
 
 .modal_form {
     width: 80%;
-    height: 95vh;
+    padding: 50px 0px;
+    height: fit-content;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -97,4 +100,18 @@
 
 a {
     text-decoration: none;
+}
+
+.data__ {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 40px 100px;
+    color: #646466;
+}
+
+.data__ ul {
+    padding-top: 20px;
 }

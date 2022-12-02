@@ -6,6 +6,8 @@ import Commercial from './pages/Domestic-services/commercial-services';
 import { Routes, Route } from 'react-router-dom';
 import { PageContextProvider } from './components/context';
 import Preloader from './components/Preloader';
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 
 function App() {
@@ -21,13 +23,15 @@ function App() {
     <div>
       {show ? <Preloader /> :
         (
-          <PageContextProvider>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/domestic' element={<Domestic />} />
-              <Route path='/commercial' element={<Commercial />} />
-            </Routes>
-          </PageContextProvider>
+          <ChakraProvider>
+            <PageContextProvider>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/domestic' element={<Domestic />} />
+                <Route path='/commercial' element={<Commercial />} />
+              </Routes>
+            </PageContextProvider>
+          </ChakraProvider>
         )
       }
     </div>

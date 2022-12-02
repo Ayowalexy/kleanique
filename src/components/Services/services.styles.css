@@ -18,7 +18,7 @@
 .services .header_box {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 50px;
 }
 
@@ -33,9 +33,15 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    transition: ease all 300ms;
+
+}
+
+.service_box_active {
+    
 }
 
 .services .service_image {

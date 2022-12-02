@@ -142,12 +142,12 @@ const ContactUs = () => {
                             <Input
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder='Enter Email'
+                                placeholder='Enter email'
                             />
                             <Input
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
-                                placeholder='Enter Phone Number'
+                                placeholder='Enter phone number'
                             />
 
                             <TextArea value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Enter message' />
@@ -157,6 +157,7 @@ const ContactUs = () => {
                             </Button>
                         </div>
                         <div>
+                            <div className="address__">Our Physical Address</div>
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
                                 center={coords}

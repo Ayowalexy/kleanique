@@ -54,9 +54,9 @@
 
 .commercial_serrvices {
     background: #4DBDEF;
-    border-radius: 13px;
+    border-radius: 70px;
     width: 268px;
-    margin-top: 60px;
+    margin-top: 120px;
     color: #fff;
     font-family: 'Poppins';
     font-weight: 500;
@@ -67,9 +67,20 @@
 }
 
 .revs {
-    color: #4DBDEF;
-    margin-top: 30px;
+    color: #ED5955;
+    margin-top: 100px;
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 26px;
+}
+
+.arrow_box {
+    width: 20px;
+    margin-left: 10px;
+    height: 20px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #fff;
 }

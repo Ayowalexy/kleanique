@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import HeroImage from '../../assets/hero_2.png'
+import HeroImage_ from '../../assets/hero_3.png'
+
 import Layout from '../../components/Layout';
 import Card from './Card';
-import Modal from '../../components/Modal';
+import CModal from '../../components/Modal';
 import './domestic.styles.css'
 import styled from '@emotion/styled';
 import Garden from '../../assets/garden.png'
 import Image2 from '../../assets/clean2.png'
 import Image7 from '../../assets/clean_7.png'
-import Image8 from '../../assets/clean_8.png'
+import Image4 from '../../assets/clean_4.png'
+import Image8 from '../../assets/clean_6_.png'
 import Val from '../../assets/val.png';
 import Footer from '../../components/Footer';
 import { Box } from '../../components/Projects';
 import { AiFillStar } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
 const Image = styled.div`
@@ -33,15 +37,17 @@ const Commercial = () => {
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
     const navigate = useNavigate();
+    const [image, setImage] = useState("")
 
-    const handleClick = (val) => {
-        window.scrollTo(0, 0)
+    const handleClick = (val, img) => {
+        // window.scrollTo(0, 0)
+        setImage(img)
         setName(val)
         setActive(true)
     }
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }, [])
 
     return (
@@ -57,7 +63,7 @@ const Commercial = () => {
                         </div>
 
                     </div>
-                    <img src={HeroImage} className='hero_image' />
+                    <img src={HeroImage_} className='hero_image' />
 
                 </div>
                 <div className='domestic_container'>
@@ -69,7 +75,7 @@ const Commercial = () => {
                     <div className='card_container c_bg'>
                         <Image url={Image2} />
                         <div className='card_box'>
-                            <div className='card_header colored'>General Office Cleaning</div>
+                            <div className='card_header colored'>General Office cleaning Services</div>
                             <ul>
                                 <li>Horizon Splash Polishing</li>
                                 <li>General cleaning</li>
@@ -77,7 +83,7 @@ const Commercial = () => {
                                 <li>Deep cleaning </li>
                                 <li>Office desinfection</li>
                             </ul>
-                            <button className='colored_bg'  onClick={() => handleClick('General Office Cleaning')}>
+                            <button className='colored_bg' onClick={() => handleClick('General Office cleaning Services', Image2)}>
                                 Get a quote
                             </button>
                         </div>
@@ -90,12 +96,13 @@ const Commercial = () => {
                             <ul>
                                 <li>Surface disinfecting</li>
                                 <li>Fogging surfaces.</li>
+                                <li>Fumigation.</li>
                             </ul>
-                            <button className='colored_bg'  onClick={() => handleClick('Office Disinfection Services')}>
+                            <button className='colored_bg' onClick={() => handleClick('Office Disinfection Services', Image4)}>
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image7} />
+                        <Image url={Image4} />
 
                     </div>
 
@@ -111,7 +118,7 @@ const Commercial = () => {
                                 <li>Dry and Dust.</li>
                                 <li>Deep Cleaning</li>
                             </ul>
-                            <button className='colored_bg'  onClick={() => handleClick('Spring Cleaning Services')}>
+                            <button className='colored_bg' onClick={() => handleClick('Spring Cleaning Services', Image8)}>
                                 Get a quote
                             </button>
                         </div>
@@ -119,29 +126,33 @@ const Commercial = () => {
 
 
                     <div className='commercial_serrvices colored_bg_' onClick={() => navigate('/domestic')}>
-                        Domestic Services
+                        <div>
+                            Domestic Services
+                        </div>
+                        <div className='arrow_box'>
+                            <MdKeyboardArrowRight fill='#ED5955' />
+                        </div>
                     </div>
-                    <div className='revs'>
+                    <div className='revs' style={{ color: '#4DBDEF' }}>
                         Client Reviews
                     </div>
 
                     <div className="project_testimonials">
+
                         <div className="project_box_container">
                             {
                                 [1, 2, 3].map(_ => (
-                                    <Box key={_} className='anime' id="anime_" align={_ % 2 === 0 ? 'flex-end' : 'flex-start'}>
-                                        <div className="image_box">
-                                            <img src={Val} className='box_image' />
-                                            <div className="image_text">Mr Wakanda Walters</div>
-                                        </div>
-
+                                    <Box key={_} className='anime' id="anime_">
                                         <div className="project_text_2_container">
                                             <div>
-                                                I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda
-                                            </div>
+                                                I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
                                             <div className="rating">
                                                 {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
                                             </div>
+                                            <div className="image_text_cont">
+                                                <div className="image_text">Mr Wakanda Walters</div>
+                                            </div>
+
                                         </div>
                                     </Box>
                                 ))
@@ -153,7 +164,7 @@ const Commercial = () => {
 
                 </div>
             </div>
-            <Modal name={name} type='commercial' active={active} setActive={setActive} />
+            <CModal image={image} name={name} type='commercial' active={active} setActive={setActive} />
 
         </Layout>
     )
