@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import HeroImage from '../../assets/hero.png';
 import CModal from "../Modal";
 import { usePageContext } from "../context";
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useMediaQuery } from "@chakra-ui/react";
+import MobileHero from '../../assets/m_2.png'
 import './hero.styles.css'
 
 
@@ -10,7 +12,9 @@ const Hero = () => {
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
     const navigate = useNavigate();
-    const { page, setPage } = usePageContext()
+    const { page, setPage } = usePageContext();
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 
     const handleClick = (val) => {
         window.scrollTo(0, 0)
@@ -19,7 +23,7 @@ const Hero = () => {
     }
 
     useEffect(() => {
-        if(page === '#contact_2'){
+        if (page === '#contact_2') {
             const doc = document.querySelector('#contact_2')
             doc.scrollIntoView();
             setTimeout(() => {
@@ -39,12 +43,17 @@ const Hero = () => {
                 </div>
                 <div className="buttons">
                     <div class="button button-2" onClick={() => navigate('/domestic')}>Get a quote</div>
-                    <a aphref="#contact">
-                        <div class="button button-1" >Contact Us</div>
-                    </a>
+                    {
+                        isLargerThan600 && (
+                            <a aphref="#contact">
+                                <div class="button button-1" >Contact Us</div>
+                            </a>
+                        )
+                    }
                 </div>
 
             </div>
+            {!isLargerThan600 && <img src={MobileHero} className='hero_image_mobile' />}
             <img src={HeroImage} className='hero_image' />
             <CModal name={name} type='domestic' active={active} setActive={setActive} />
 

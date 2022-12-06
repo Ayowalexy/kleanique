@@ -58,3 +58,38 @@ html .container .link:hover:after {
     width: 100%;
     opacity: 0.9;
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .sideMenu_cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sideMenu_cont div {
+        width: 84px;
+        height: 26.56px;
+        background: #1818D6;
+        border-radius: 13px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .logo_image {
+        width: 87px;
+        height: auto;
+    }
+}
+

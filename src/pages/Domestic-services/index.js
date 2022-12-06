@@ -20,6 +20,8 @@ import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import MobileImage from '../../assets/m_1.png'
+import { useMediaQuery } from '@chakra-ui/react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
@@ -39,7 +41,10 @@ const Domestic = () => {
     const navigate = useNavigate()
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState("");
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
+
 
     const handleClick = (val, img) => {
         // window.scrollTo(0, 0)
@@ -65,6 +70,7 @@ const Domestic = () => {
                         </div>
 
                     </div>
+                    {!isLargerThan600 && <img src={MobileImage} className='mobile_image_' />}
                     <img src={HeroImage} className='hero_image' />
 
                 </div>
@@ -72,7 +78,7 @@ const Domestic = () => {
                     <div className='domestic_container_header'>Domestic Services</div>
 
                     <div className='card_container'>
-                        <Image url={Garden} />
+                        <Image className='b_Image'  url={Garden} />
                         <div className='card_box card__'>
                             <div className='card_header'>Garden Services</div>
                             <ul>
@@ -88,7 +94,7 @@ const Domestic = () => {
 
 
                     <div className='card_container'>
-                        <div className='card_box'>
+                        <div className='card_box _2'>
                             <div className='card_header'>Home Cleaning Services</div>
                             <ul>
                                 <li>For that special event you've been planning for.</li>
@@ -99,13 +105,13 @@ const Domestic = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image2} />
+                        <Image className='b_Image' url={Image2} />
 
                     </div>
 
 
                     <div className='card_container'>
-                        <Image url={Image3} />
+                        <Image className='b_Image'  url={Image3} />
                         <div className='card_box card__' >
                             <div className='card_header'>Spring Cleaning Services</div>
                             <ul>
@@ -119,7 +125,7 @@ const Domestic = () => {
 
 
                     <div className='card_container'>
-                        <div className='card_box'>
+                        <div className='card_box _2'>
                             <div className='card_header'>Deep Cleaning Services</div>
                             <ul>
                                 <li>Dusting of furniture and other surfaces such <br />as electronic screens and lampshades)</li>
@@ -130,11 +136,11 @@ const Domestic = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image8} />
+                        <Image className='b_Image'  url={Image8} />
                     </div>
 
                     <div className='card_container'>
-                        <Image url={Image5} />
+                        <Image className='b_Image'  url={Image5} />
                         <div className='card_box card__'>
                             <div className='card_header'>One-time cleaning Services</div>
                             <ul>
@@ -150,7 +156,7 @@ const Domestic = () => {
                     </div>
 
                     <div className='card_container'>
-                        <div className='card_box'>
+                        <div className='card_box _2'>
                             <div className='card_header'>Move-in/out Cleaning Services</div>
                             <ul>
                                 <li>Dusting of furniture and other surfaces such as <br />electronic screens and lampshades)</li>
@@ -159,7 +165,7 @@ const Domestic = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image6} />
+                        <Image className='b_Image'  url={Image6} />
                     </div>
 
                     <div className='commercial_serrvices' onClick={() => navigate('/commercial')}>

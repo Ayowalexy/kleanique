@@ -18,6 +18,8 @@ import { Box } from '../../components/Projects';
 import { AiFillStar } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import MobileImage from '../../assets/m_2.png'
+import { useMediaQuery } from '@chakra-ui/react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
@@ -37,7 +39,9 @@ const Commercial = () => {
     const [active, setActive] = useState(false);
     const [name, setName] = useState("");
     const navigate = useNavigate();
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState("");
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 
     const handleClick = (val, img) => {
         // window.scrollTo(0, 0)
@@ -63,6 +67,7 @@ const Commercial = () => {
                         </div>
 
                     </div>
+                    {!isLargerThan600 && <img src={MobileImage} className='mobile_image_' />}
                     <img src={HeroImage_} className='hero_image' />
 
                 </div>
@@ -70,10 +75,16 @@ const Commercial = () => {
                     <div className='domestic_container_header colored'>Commercial Services</div>
 
                     <div className='c_services'>
-                        Our commercial services cover a wide range of business-related cleaning services, ranging from offices, through to shop floors, mini-assembly outfits, storerooms, and premises used purely for commerce. In case of a monthly, quarterly, or bi-annual cleaning, we strongly recommend our deep cleaning services. However, bi-annual or annual cleaning services should be composed of afterwards disinfection or “nuisance treatment”, which is fondly referred to as “fumigation”.
+                        {
+                            isLargerThan600 
+                            ?
+                            'Our commercial services cover a wide range of business-related cleaning services, ranging from offices, through to shop floors, mini-assembly outfits, storerooms, and premises used purely for commerce. In case of a monthly, quarterly, or bi-annual cleaning, we strongly recommend our deep cleaning services. However, bi-annual or annual cleaning services should be composed of afterwards disinfection or “nuisance treatment”, which is fondly referred to as “fumigation”.'
+                            :
+                            'Select your preferred service'
+                        }
                     </div>
                     <div className='card_container c_bg'>
-                        <Image url={Image2} />
+                        <Image className='b_Image'  url={Image2} />
                         <div className='card_box card__'>
                             <div className='card_header colored'>General Office cleaning Services</div>
                             <ul>
@@ -91,7 +102,7 @@ const Commercial = () => {
 
 
                     <div className='card_container c_bg'>
-                        <div className='card_box'>
+                        <div className='card_box _2'>
                             <div className='card_header colored'>Office Disinfection<br /> Services</div>
                             <ul>
                                 <li>Surface disinfecting</li>
@@ -102,13 +113,13 @@ const Commercial = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image url={Image4} />
+                        <Image className='b_Image'  url={Image4} />
 
                     </div>
 
 
                     <div className='card_container c_bg'>
-                        <Image url={Image8} />
+                        <Image className='b_Image'  url={Image8} />
                         <div className='card_box card__'>
                             <div className='card_header colored'>Spring Cleaning Services</div>
                             <ul>

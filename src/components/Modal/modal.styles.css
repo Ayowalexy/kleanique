@@ -115,3 +115,34 @@ a {
 .data__ ul {
     padding-top: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .modal_form_header {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    .modal_image__ {
+        height: 135px !important;
+        border-radius: 10px !important;
+
+    }
+    .data__ {
+        padding: 40px 30px;
+    }
+    .modal_form {
+        width: 90%;
+    }
+    .modal_input {
+        width: 100%;
+    }
+    .modal_input_container {
+        flex-direction: column;
+    }
+    .text_area {
+        margin-top: 30px;
+    }
+
+}

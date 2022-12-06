@@ -3,9 +3,11 @@ import './services.styles.css'
 import Image1 from '../../assets/clean.png'
 import Image2 from '../../assets/clean2.png'
 import ServiceImage from '../../assets/service.png'
+import House from '../../assets/house.png'
 import Star from '../../assets/svg/star.svg'
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@chakra-ui/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +17,8 @@ const Services = () => {
     const navigate = useNavigate();
     const [seeMore, setSeeMore] = useState(false);
     const [seeMore_2, setSeeMore_2] = useState(false)
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 
 
 
@@ -106,25 +110,56 @@ const Services = () => {
                     <img src={Image1} className='service_image' onClick={() => navigate('/domestic')} />
                     <div className="services_text_1" onClick={() => navigate('/domestic')}>Domestic services</div>
                     <div className="services_text_2">
-                        Garden Services, Home Cleaining, Spring Cleaning, Deep Cleaning, One-time Cleaning, Move in/out <span onClick={() => setSeeMore(!seeMore)} style={{ color: 'red' }}>{seeMore ? 'see less' : 'see more'}</span>
+                        {
+                            isLargerThan600 ?
+                                <>
+                                    Garden Services, Home Cleaining, Spring Cleaning, Deep Cleaning, One-time Cleaning, Move in/out <span onClick={() => setSeeMore(!seeMore)} style={{ color: 'red' }}>{seeMore ? 'see less' : 'see more'}</span>
+                                </>
+                                :
+                                <>
+                                    Homes, Move In and out, Deep
+                                    cleaning, Spring Cleaning
+                                    Garden services
+                                </>
+                        }
+                        {
+                            !isLargerThan600 && (
+                                <div className="div_p">
+                                    <div className="see_more_mobile">
+                                        see more
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
+
                 </div>
 
                 <div className="service_box" style={{ height: seeMore_2 ? '490px' : "408px" }} >
                     <img src={Image2} className='service_image' onClick={() => navigate('/commercial')} />
                     <div className="services_text_1" onClick={() => navigate('/commercial')}>Commercial services</div>
                     <div className="services_text_2 services_text_2_type_2">
-                        General Office Cleaning, Office Disinfection, Shop Floor Cleaning  <span onClick={() => setSeeMore_2(!seeMore_2)} style={{ color: 'red' }}>{seeMore_2 ? 'see less' : 'see more'}</span>
+                        General Office Cleaning, Office Disinfection, Shop Floor Cleaning  {isLargerThan600 && <span onClick={() => setSeeMore_2(!seeMore_2)} style={{ color: 'red' }}>{seeMore_2 ? 'see less' : 'see more'}</span>}
+                        {
+                            !isLargerThan600 && (
+                                <div className="div_p">
+                                    <div className="see_more_mobile">
+                                        see more
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>
 
             <div className="section_2">
-                <div className="header_text">Why Choose Us</div>
-                <div className="header_text_2">Prime provider of quality and comfortable cleaning services at affordable prices.</div>
+                <div className="header_text why_choose">Why Choose Us</div>
+                <div className="header_text_2">Prime provider of quality and comfortable cleaning { !isLargerThan600 && <br />}services at affordable prices.</div>
 
                 <div className="service_container">
                     <div className="service_box_1">
+                        {!isLargerThan600 && <div className="house_image"><img src={House} /></div>}
                         <div className="service_container_box">
                             <div className="service_header" id='service_header_'>
                                 <img src={Star} />
@@ -148,13 +183,13 @@ const Services = () => {
                     </div>
 
                     <div className="service_middle">
-                        <img src={ServiceImage} className='service_image' />
+                        {isLargerThan600 && <img src={ServiceImage} className='service_image' />}
                         <div className="service_container_box">
                             <div className="service_header">
                                 <img src={Star} />
                                 <div>LEADING TECHNOLOGIES</div>
                             </div>
-                            <div className="service_subText">
+                            <div className="service_subText cat_2">
                                 We use safe hospital-grade disinfectants, HEPA filtrations and microfiber cleaning cloths.                            </div>
                         </div>
                     </div>

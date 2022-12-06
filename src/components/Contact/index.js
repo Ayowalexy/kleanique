@@ -91,8 +91,8 @@ const ContactUs = () => {
     }, [])
 
     const containerStyle = {
-        width: '650px',
-        height: '650px'
+        width: '100%',
+        height: '100%'
     };
 
     const center = {
@@ -156,7 +156,7 @@ const ContactUs = () => {
                                 Submit
                             </Button>
                         </div>
-                        <div>
+                        <div className="g_map">
                             <div className="address__">Our Physical Address</div>
                             <GoogleMap
                                 mapContainerStyle={containerStyle}

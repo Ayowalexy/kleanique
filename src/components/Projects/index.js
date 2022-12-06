@@ -14,6 +14,7 @@ import Val from '../../assets/val.png';
 import styled from "@emotion/styled";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useMediaQuery } from "@chakra-ui/react";
 import { AiFillStar } from 'react-icons/ai'
 import './projects.styles.css'
 
@@ -52,6 +53,8 @@ export const Box = styled.div`
 const Project = () => {
 
     const [idx, currentIndex] = useState(0);
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 
     useEffect(() => {
         gsap.fromTo('.anime', {
@@ -76,13 +79,15 @@ const Project = () => {
     return (
         <div className="project_container" id="contact_2">
             <div className="project_container_header" >Projects Done</div>
-            <div className="project_container_text">Here are some cleaning service done for our clients in South Africa</div>
+            {
+                isLargerThan600 && (<div className="project_container_text">Here are some cleaning service done for our clients in South Africa</div>)
+            }
 
             <div className="carousel_container">
-                <Carousel renderDots={() => null}>
+                <Carousel renderDots={() => null} renderArrowLeft={() => null} renderArrowRight={() => null}>
                     {[Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8].map((element, idx) => (
                         <div>
-                            <Image url={element} key={idx}>
+                            <Image className="caroul_image" url={element} key={idx}>
                                 <div className="before_cont">
                                     <div className="before_box" style={{ backgroundColor: idx % 2 == 0 ? "#FBD6D4" : "#5EFFC9" }} />
                                     <div className="before">
@@ -139,7 +144,9 @@ const Project = () => {
                     {
                         [1, 2, 3].map(_ => (
                             <Box key={_} className='anime' id="anime_">
-                                <div className="project_text_2_container">
+                                
+                                <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
+                                
                                     <div>
                                         I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
                                     <div className="rating">

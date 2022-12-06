@@ -12,7 +12,8 @@ import {
     ModalBody,
     ModalCloseButton,
     Button,
-    useDisclosure
+    useDisclosure,
+    useMediaQuery
 } from '@chakra-ui/react'
 import styled from "@emotion/styled";
 
@@ -56,7 +57,9 @@ const TextArea = styled.textarea`
 
 const CModal = ({ name, type, active, setActive, image }) => {
     const target = document.querySelector('.b_layout');
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 
 
     useEffect(() => {
@@ -71,12 +74,12 @@ const CModal = ({ name, type, active, setActive, image }) => {
         <>
             <Modal isOpen={active} size='full' onClose={() => setActive(!active)}>
                 <ModalOverlay />
-                <ModalContent 
-                boxShadow='none'
-                backgroundColor='transparent' height='fit-content'>
+                <ModalContent
+                    boxShadow='none'
+                    backgroundColor='transparent' height='fit-content'>
                     {/* <ModalCloseButton color="#fff" onClick={() => setActive(!active)}/> */}
                     <ModalBody
-                    
+
                     >
                         <div className="modal_container">
 
@@ -86,7 +89,7 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                         <IoIosClose fill="#fff" size='40px' />
                                     </div>
                                     <div className="modal_form_header" style={{ color: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}>{name}</div>
-                                    <Image img={image} />
+                                    <Image className="modal_image__" img={image} />
                                     {
                                         name === 'General Office cleaning Services' && (
                                             <div className="data__">
@@ -158,24 +161,50 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                             <Input placeholder="Enter name" />
                                             <Input placeholder="Enter email address" />
                                             <Input placeholder="Enter phone number" />
-                                            <div className="modal_btn">
-                                                <button
-                                                    style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}
-                                                >
-                                                    Submit
-                                                </button>
-                                                <button
-                                                    style={{
-                                                        border: type !== 'commercial' ? '1px solid #ED5955' : '1px solid #4DBDEF',
-                                                        color: type !== 'commercial' ? '#ED5955' : '#4DBDEF'
-                                                    }}
-                                                >
-                                                    Cancel
-                                                </button>
-                                            </div>
+                                            {
+                                                isLargerThan600 && (
+                                                    <div className="modal_btn">
+                                                        <button
+                                                            style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}
+                                                        >
+                                                            Submit
+                                                        </button>
+                                                        <button
+                                                            style={{
+                                                                border: type !== 'commercial' ? '1px solid #ED5955' : '1px solid #4DBDEF',
+                                                                color: type !== 'commercial' ? '#ED5955' : '#4DBDEF'
+                                                            }}
+                                                        >
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                )
+
+                                            }
+
                                         </div>
-                                        <div className="modal_input">
+                                        <div className="modal_input text_area">
                                             <TextArea placeholder="Enter message" />
+                                            {
+                                                !isLargerThan600 && (
+                                                    <div className="modal_btn">
+                                                        <button
+                                                            style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}
+                                                        >
+                                                            Submit
+                                                        </button>
+                                                        <button
+                                                            style={{
+                                                                border: type !== 'commercial' ? '1px solid #ED5955' : '1px solid #4DBDEF',
+                                                                color: type !== 'commercial' ? '#ED5955' : '#4DBDEF'
+                                                            }}
+                                                        >
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                )
+
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +213,7 @@ const CModal = ({ name, type, active, setActive, image }) => {
                         </div>
                     </ModalBody>
 
-                    
+
                 </ModalContent>
             </Modal>
         </>

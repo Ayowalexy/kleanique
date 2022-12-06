@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     height: 70vh;
+    overflow: hidden;
 }
 
 .hero_image {
@@ -86,4 +87,53 @@
 .button-2:hover {
     background-position: 100%;
     color: #ED5955;
+}
+
+@media only screen and (max-width: 768px) {
+    .hero_image {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header_text {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 111%;
+    }
+
+    .header_text_2 {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .hero_container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 35vh;
+        overflow: hidden;
+        overflow: hidden;
+    }
+
+    .hero_text {
+        padding-left: 26px;
+    }
+
+    .button {
+        width: 117px;
+        height: 37px;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .hero_image_mobile {
+        margin-left: -20px;
+        margin-top: -40px;
+    }
+
 }
