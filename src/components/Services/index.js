@@ -124,8 +124,8 @@ const Services = () => {
                         }
                         {
                             !isLargerThan600 && (
-                                <div className="div_p">
-                                    <div className="see_more_mobile">
+                                <div className="div_p" >
+                                    <div className="see_more_mobile" onClick={() => navigate('/domestic')}>
                                         see more
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@ const Services = () => {
                         {
                             !isLargerThan600 && (
                                 <div className="div_p">
-                                    <div className="see_more_mobile">
+                                    <div className="see_more_mobile" onClick={() => navigate('/commercial')}>
                                         see more
                                     </div>
                                 </div>

@@ -3,6 +3,7 @@ import './footer.styles.css';
 import Phone from '../../assets/svg/phone.svg'
 import Email from '../../assets/svg/email.svg'
 import FB from '../../assets/svg/fb.svg'
+import Wh from '../../assets/wh.png'
 import Location from '../../assets/location.png'
 import { useMediaQuery } from "@chakra-ui/react";
 import Logo2 from '../../assets/logo_2.png'
@@ -51,10 +52,10 @@ const Footer = () => {
                     )
                     :
                     (
-                        <div className="footer_mobile">
+                        <div className="footer_mobile" id='f_tter'>
                             <img src={Logo2} />
                             <div className="logos_mobile">
-                                <img src={Phone} />
+                                <img src={Wh} style={{width: '50px'}} />
                                 <img src={Email} />
                                 <img src={FB} />
                                 <img src={Location} />

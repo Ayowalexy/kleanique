@@ -132,8 +132,10 @@
         line-height: 16px;
     }
     .hero_image_mobile {
-        margin-left: -20px;
+        margin-left: -30px;
         margin-top: -40px;
+        width: 230px;
+        height: auto;
     }
 
 }

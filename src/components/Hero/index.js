@@ -23,8 +23,8 @@ const Hero = () => {
     }
 
     useEffect(() => {
-        if (page === '#contact_2') {
-            const doc = document.querySelector('#contact_2')
+        if (page === '#contact_2' || page === '#f_tter') {
+            const doc = document.querySelector(page)
             doc.scrollIntoView();
             setTimeout(() => {
                 setPage("")

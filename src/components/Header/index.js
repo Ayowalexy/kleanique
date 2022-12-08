@@ -48,8 +48,9 @@ const Header = () => {
                     :
                     (
                         <div className='sideMenu_cont'>
-                            <div>Call now</div>
-                            <AiOutlineMenu onClick={() => setShow(!show)} size='20px' />
+                            
+                            <a href='tel:063 260 2448'><div>Call now</div></a>
+                            <AiOutlineMenu onClick={() => setShow(!show)} size='30px' />
                             <SideMenu show={show} setShow={setShow} />
                         </div>
                     )

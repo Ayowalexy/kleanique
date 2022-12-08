@@ -78,7 +78,7 @@ const Domestic = () => {
                     <div className='domestic_container_header'>Domestic Services</div>
 
                     <div className='card_container'>
-                        <Image className='b_Image'  url={Garden} />
+                        <Image className='b_Image' url={Garden} />
                         <div className='card_box card__'>
                             <div className='card_header'>Garden Services</div>
                             <ul>
@@ -110,12 +110,19 @@ const Domestic = () => {
                     </div>
 
 
-                    <div className='card_container'>
-                        <Image className='b_Image'  url={Image3} />
-                        <div className='card_box card__' >
+                    <div className='card_container sp_cont'>
+                        <Image className='b_Image' url={Image3} />
+                        <div className='card_box card__ spp' >
                             <div className='card_header'>Spring Cleaning Services</div>
                             <ul>
-                                <li>Cleaning and organising your refrigerator</li>
+                               <li> Thorough dusting of the ceiling</li>
+                                <li>Wall cleaning</li>
+                                <li>Carpet and under-the-carpet cleaning</li>
+                                <li>Floor dusting and cleaning</li>
+                                <li>Surface polishing</li>
+                                <li>Window cleaning</li>
+                                <li>Doors, door handles and frame cleaning</li>
+                                <li>Kitchen dusting and moping</li>
                             </ul>
                             <button onClick={() => handleClick('Spring Cleaning Services', Image3)} >
                                 Get a quote
@@ -136,11 +143,11 @@ const Domestic = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image className='b_Image'  url={Image8} />
+                        <Image className='b_Image' url={Image8} />
                     </div>
 
                     <div className='card_container'>
-                        <Image className='b_Image'  url={Image5} />
+                        <Image className='b_Image' url={Image5} />
                         <div className='card_box card__'>
                             <div className='card_header'>One-time cleaning Services</div>
                             <ul>
@@ -165,7 +172,7 @@ const Domestic = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image className='b_Image'  url={Image6} />
+                        <Image className='b_Image' url={Image6} />
                     </div>
 
                     <div className='commercial_serrvices' onClick={() => navigate('/commercial')}>

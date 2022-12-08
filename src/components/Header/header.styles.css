@@ -72,10 +72,10 @@ html .container .link:hover:after {
     }
 
     .sideMenu_cont div {
-        width: 84px;
-        height: 26.56px;
+        width: 94px;
+        height: 36.56px;
         background: #1818D6;
-        border-radius: 13px;
+        border-radius: 50px;
         color: #fff;
         display: flex;
         justify-content: center;
@@ -83,7 +83,7 @@ html .container .link:hover:after {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
-        font-size: 10px;
+        font-size: 13px;
         line-height: 15px;
     }
 

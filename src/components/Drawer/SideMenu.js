@@ -17,9 +17,11 @@ import {
     AccordionIcon,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import { usePageContext } from '../context'
 
 function SideMenu({ show, setShow }) {
     const btnRef = React.useRef()
+    const { setPage } = usePageContext()
     const navigate = useNavigate();
 
     return (
@@ -42,9 +44,10 @@ function SideMenu({ show, setShow }) {
                                 fontFamily='Poppins'
                                 fontSize='16px'
                                 paddingBottom='22px'
+                                onClick={() => navigate('/')}
                             >Home</Text>
                             <Accordion allowMultiple>
-                                <AccordionItem  border='none' marginLeft='-18px'>
+                                <AccordionItem border='none' marginLeft='-18px'>
                                     <h2>
                                         <AccordionButton border='none'>
                                             <Box flex='1' textAlign='left'>
@@ -70,7 +73,7 @@ function SideMenu({ show, setShow }) {
                                                 paddingBottom='22px'
                                             >Domestic Service</Text>
                                             <Text
-                                            onClick={() => navigate('/commercial')}
+                                                onClick={() => navigate('/commercial')}
                                                 fontWeight={300}
                                                 color='#364A66'
                                                 fontFamily='Poppins'
@@ -88,6 +91,11 @@ function SideMenu({ show, setShow }) {
                                 fontFamily='Poppins'
                                 fontSize='16px'
                                 paddingBottom='22px'
+                                onClick={() => {
+                                    setPage('#contact_2')
+                                    navigate('/')
+                                    setShow(false)
+                                }}
                             >Projects Done</Text>
                             <Text
                                 fontWeight={300}
@@ -95,6 +103,11 @@ function SideMenu({ show, setShow }) {
                                 fontFamily='Poppins'
                                 fontSize='16px'
                                 paddingBottom='22px'
+                                onClick={() => {
+                                    setPage('#f_tter')
+                                    navigate('/')
+                                    setShow(false)
+                                }}
                             >Contact Us</Text>
                         </Box>
                     </DrawerBody>

@@ -121,7 +121,7 @@ const Commercial = () => {
                     <div className='card_container c_bg'>
                         <Image className='b_Image'  url={Image8} />
                         <div className='card_box card__'>
-                            <div className='card_header colored'>Spring Cleaning Services</div>
+                            <div className='card_header colored'>Shop Floor Services</div>
                             <ul>
                                 <li>Wet and Vacuum.</li>
                                 <li>Decontamination.</li>
