@@ -16,6 +16,19 @@ import {
     useMediaQuery
 } from '@chakra-ui/react'
 import styled from "@emotion/styled";
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useToast } from "@chakra-ui/react";
+import { sendEmail } from "../Contact";
+
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Please, enter your full name'),
+    phone: Yup.string().required('Please, enter your phone number'),
+    email: Yup.string().email().required('Please, enter your email'),
+    msg: Yup.string().required('Please, enter your message')
+})
+
 
 
 const Image = styled.div`
@@ -58,9 +71,44 @@ const TextArea = styled.textarea`
 const CModal = ({ name, type, active, setActive, image }) => {
     const target = document.querySelector('.b_layout');
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
+    const toast = useToast();
+    const [loading, setLoading] = useState(false);
 
+    const {
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        setFieldValue,
+        resetForm,
 
+        isSubmitting,
+        errors,
+        touched,
+    } = useFormik({
+        initialValues: {
+            name: '',
+            phone: '',
+            email: '',
+            msg: ''
+        },
+
+        validationSchema,
+        onSubmit: async (values) => {
+            setLoading(true)
+            await sendEmail({ ...values, subject: name })
+            toast({
+                title: 'Email service.',
+                description: "Your email has been received successfully, out team will attent to it and get back to you in the shortest possible time",
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+                position: 'top-right'
+            })
+            setActive(!active)
+            setLoading(false)
+        },
+    });
 
     useEffect(() => {
         if (active) {
@@ -155,21 +203,71 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                         )
                                     }
 
+                                    {
+                                        name === 'Spring Cleaning Services' && (
+                                            <div className="data__">
+                                                <div >
+                                                    Spring-cleaning is typically done to remove any hidden or conspicuous dirt and stubborn stains – from ceiling-top to the ground, and the perimeter. It is meant to sparkle a surface, the entire house, surrounding or office:
+                                                </div>
+                                                <div>
+                                                    <ul>
+                                                        <li>Thorough dusting of the ceilingo</li>
+                                                        <li>Wall cleaningo</li>
+                                                        <li>Carpet and under-the-carpet cleaningo</li>
+                                                        <li>Floor dusting and cleaningo Surface polishingo</li>
+                                                        <li>Window cleaningo</li>
+                                                        <li>Doors, door handles and frame cleaningo</li>
+                                                        <li>Kitchen dusting and mopping</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
 
                                     <div className="modal_input_container">
                                         <div className="modal_input">
-                                            <Input placeholder="Enter name" />
-                                            <Input placeholder="Enter email address" />
-                                            <Input placeholder="Enter phone number" />
+                                            <Input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                name='name'
+                                                placeholder="Enter name"
+                                            />
+                                            <div style={{ color: 'red', fontSize: '15px' }}>
+                                                {!!errors.name && touched.name ? errors.name : null}
+                                                
+                                            </div>
+                                            <Input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                name='email'
+                                                placeholder="Enter email address" />
+                                            <div style={{ color: 'red', fontSize: '15px' }}>
+                                                {!!errors.email && touched.email ? errors.email : null}
+
+                                            </div>
+                                            <Input
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                name='phone'
+                                                placeholder="Enter phone number" />
+                                            <div style={{ color: 'red', fontSize: '15px' }}>
+                                                {!!errors.phone && touched.phone ? errors.phone : null}
+
+                                            </div>
                                             {
                                                 isLargerThan600 && (
                                                     <div className="modal_btn">
-                                                        <button
+                                                        <Button
+                                                            isLoading={loading}
+                                                            onClick={handleSubmit}
                                                             style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}
                                                         >
                                                             Submit
-                                                        </button>
+                                                        </Button>
+
                                                         <button
+                                                            onClick={() => setActive(!active)}
                                                             style={{
                                                                 border: type !== 'commercial' ? '1px solid #ED5955' : '1px solid #4DBDEF',
                                                                 color: type !== 'commercial' ? '#ED5955' : '#4DBDEF'
@@ -184,16 +282,27 @@ const CModal = ({ name, type, active, setActive, image }) => {
 
                                         </div>
                                         <div className="modal_input text_area">
-                                            <TextArea placeholder="Enter message" />
+                                            <TextArea
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                name='msg'
+                                                placeholder="Enter message" />
+                                            <div style={{ color: 'red', fontSize: '15px' }}>
+                                                {!!errors.msg && touched.msg ? errors.msg : null}
+
+                                            </div>
                                             {
                                                 !isLargerThan600 && (
                                                     <div className="modal_btn">
-                                                        <button
+                                                         <Button
+                                                            isLoading={loading}
+                                                            onClick={handleSubmit}
                                                             style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}
                                                         >
                                                             Submit
-                                                        </button>
+                                                        </Button>
                                                         <button
+                                                            onClick={() => setActive(!active)}
                                                             style={{
                                                                 border: type !== 'commercial' ? '1px solid #ED5955' : '1px solid #4DBDEF',
                                                                 color: type !== 'commercial' ? '#ED5955' : '#4DBDEF'

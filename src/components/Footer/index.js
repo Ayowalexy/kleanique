@@ -2,7 +2,7 @@ import React from "react";
 import './footer.styles.css';
 import Phone from '../../assets/svg/phone.svg'
 import Email from '../../assets/svg/email.svg'
-import FB from '../../assets/svg/fb.svg'
+import FB from '../../assets/fb.png'
 import Wh from '../../assets/wh.png'
 import Location from '../../assets/location.png'
 import { useMediaQuery } from "@chakra-ui/react";
@@ -17,16 +17,22 @@ const Footer = () => {
             {
                 isLargerThan600 ?
                     (
-                        <div className="footer_container" id="contact">
+                        <div className="footer_container" >
                             <div className="footer_box">
                                 <div className="footer_icon_cont">
-                                    <div className="footer_icon">
-                                        <img src={Phone} />
-                                        <div> 063 260 2448</div>
+                                    <div >
+                                        <a className="footer_icon" href="tel:063 260 2448">
+                                            <img src={Phone} />
+                                            <div> 063 260 2448</div>
+                                        </a>
+
                                     </div>
-                                    <div className="footer_icon">
-                                        <img src={FB} />
-                                        <div>Kleanique Cleaning service</div>
+                                    <div >
+                                        <a className="footer_icon" href="https://web.facebook.com/profile.php?id=100087360549776&mibextid=ZbWKwL&_rdc=1&_rdr">
+                                            <img src={FB} />
+                                            <div>Kleanique Cleaning service</div>
+
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="f_image">
@@ -34,8 +40,10 @@ const Footer = () => {
                                 </div>
                                 <div className="footer_icon_cont">
                                     <div className="footer_icon">
-                                        <img src={Email} />
-                                        <div>info@kleanique.co.za</div>
+                                        <a href="mailto:info@kleanique.co.za">
+                                            <img src={Email} />
+                                            <div>info@kleanique.co.za</div>
+                                        </a>
                                     </div>
                                     <div className="footer_icon">
                                         <img src={Location} />
@@ -53,11 +61,18 @@ const Footer = () => {
                     :
                     (
                         <div className="footer_mobile" id='f_tter'>
-                            <img src={Logo2} />
+                            <img src={Logo2} className='f_logo' />
                             <div className="logos_mobile">
-                                <img src={Wh} style={{width: '50px'}} />
-                                <img src={Email} />
-                                <img src={FB} />
+                                <a href="tel:063 260 2448">
+                                    <img src={Wh} />
+                                </a>
+                                <a href="mailto:info@kleanique.co.za">
+                                    <img src={Email} />
+                                </a>
+                                <a href="https://web.facebook.com/profile.php?id=100087360549776&mibextid=ZbWKwL&_rdc=1&_rdr">
+                                    <img src={FB} />
+                                </a>
+
                                 <img src={Location} />
 
                             </div>

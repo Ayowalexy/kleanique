@@ -75,7 +75,7 @@ const Project = () => {
 
     }, []);
 
-  
+
     return (
         <div className="project_container" id="contact_2">
             <div className="project_container_header" >Projects Done</div>
@@ -142,23 +142,28 @@ const Project = () => {
 
                 <div className="project_box_container">
                     {
-                        [1, 2, 3].map(_ => (
-                            <Box key={_} className='anime' id="anime_">
-                                
-                                <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
-                                
-                                    <div>
-                                        I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
-                                    <div className="rating">
-                                        {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
-                                    </div>
-                                    <div className="image_text_cont">
-                                        <div className="image_text">Mr Wakanda Walters</div>
-                                    </div>
+                        [
+                            { text: 'The service felt like it was done by a family member. So much care and effort was put in.', name: 'Mr Joe' },
+                            { text: 'I was a bit skeptical at first because affordable service sometimes come at a cost which will would be terrible service , but Kleanique offers value for money. ', name: 'Ms Maryke' },
+                            { text: 'There are many cleaning services out there , I’ve tried a few and so far Kleanique has met my expectations , i will be reaching out again in the near future', name: 'Mr Amos' }
+                            ].map(_ => (
+                                <Box key={_} className='anime' id="anime_">
 
-                                </div>
-                            </Box>
-                        ))
+                                    <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
+
+                                        <div>
+                                            {_.text}
+                                        </div>
+                                        <div className="rating">
+                                            {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
+                                        </div>
+                                        <div className="image_text_cont">
+                                            <div className="image_text">{_.name}</div>
+                                        </div>
+
+                                    </div>
+                                </Box>
+                            ))
                     }
                 </div>
             </div>

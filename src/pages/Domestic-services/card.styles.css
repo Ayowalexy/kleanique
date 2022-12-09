@@ -125,6 +125,10 @@
 
     }
 
+    .spp {
+        width: 100% !important;
+    }
+
     .card__ {
         padding-left: 0px;
     }

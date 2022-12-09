@@ -44,7 +44,10 @@ function SideMenu({ show, setShow }) {
                                 fontFamily='Poppins'
                                 fontSize='16px'
                                 paddingBottom='22px'
-                                onClick={() => navigate('/')}
+                                onClick={() => {
+                                    navigate('/')
+                                    setShow(false)
+                                }}
                             >Home</Text>
                             <Accordion allowMultiple>
                                 <AccordionItem border='none' marginLeft='-18px'>

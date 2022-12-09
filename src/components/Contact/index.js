@@ -3,12 +3,33 @@ import { Stack } from "react-bootstrap";
 import './contact.styles.css';
 import styled from "@emotion/styled";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+import axios from "axios";
+import { Button } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 
+export const sendEmail = async (data) => {
+    try {
+        const response = await axios.post('https://elated-tux-pike.cyclic.app/email', data)
+        console.log(response)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Please, enter your full name'),
+    phone: Yup.string().required('Please, enter your phone number'),
+    email: Yup.string().email().required('Please, enter your email'),
+    msg: Yup.string().required('Please, enter your message')
+})
 
 
 
 const Input = styled.input`
-    width: 80%;
+    width: 100%;
     height: 50px;
     padding-left: 20px;
     background: #FFFFFF;
@@ -33,7 +54,7 @@ const Select = styled.select`
 `
 
 const TextArea = styled.textarea`
-    width: 80%;
+    width: 100%;
     height: 200px;
     padding: 20px;
     background: #FFFFFF;
@@ -44,22 +65,9 @@ const TextArea = styled.textarea`
     font-size: 12px;
 `
 
-const Button = styled.button`
-    width: 80%;
-    height: 50px;
-    background: #ED5955;
-    border: 1px solid #04749C;
-    border-radius: 20px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    outline: none;
-    border: none;
-`
+// const Button = styled.button`
+
+// `
 
 
 
@@ -70,9 +78,11 @@ const ContactUs = () => {
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
     const [map, setMap] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const toast = useToast();
     const [coords, setCords] = useState({
-        lat: -3.745,
-        lng: -38.523
+        lat: 28.201622412276866,
+        lng: -25.83611107578315
     })
 
     const { isLoaded } = useJsApiLoader({
@@ -117,10 +127,44 @@ const ContactUs = () => {
         getLocation()
     }, [])
 
+    const {
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        setFieldValue,
+        resetForm,
+
+        isSubmitting,
+        errors,
+        touched,
+    } = useFormik({
+        initialValues: {
+            name: '',
+            phone: '',
+            email: '',
+            msg: ''
+        },
+
+        validationSchema,
+        onSubmit: async (values) => {
+            setLoading(true)
+            await sendEmail({ ...values, subject: "Service enquiry" })
+            toast({
+                title: 'Email service.',
+                description: "Your email has been received successfully, out team will attent to it and get back to you in the shortest possible time",
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+                position: 'top-right'
+            })
+            setLoading(false)
+        },
+    });
+
     return (
         <>
             {isLoaded && (
-                <div className="contact_us_container">
+                <div className="contact_us_container" id="contact">
                     <div className="contact_us_container_header">Contact Us</div>
                     <div className="contact_us_container_text">
                         Give us a try – you’ll be glad you did!
@@ -133,26 +177,69 @@ const ContactUs = () => {
                             </div>
 
 
-                            <Input
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                placeholder='Enter name'
-                            />
+                            <div className="inp_cont">
+                                <Input
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    name='name'
+                                    // onChange={(e) => setName(e.target.value)}
+                                    placeholder='Enter name'
+                                />
+                                <div style={{ color: 'red', fontSize: '10px' }}>
+                                    {errors.name}
+                                </div>
+                            </div>
 
-                            <Input
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder='Enter email'
-                            />
-                            <Input
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
-                                placeholder='Enter phone number'
-                            />
+                            <div className="inp_cont">
+                                <Input
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    name='email'
+                                    placeholder='Enter email'
+                                />
+                                <div style={{ color: 'red', fontSize: '10px' }}>
+                                    {errors.email}
+                                </div>
+                            </div>
+                            <div className="inp_cont">
+                                <Input
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    name='phone'
+                                    placeholder='Enter phone number'
+                                />
+                                <div style={{ color: 'red', fontSize: '10px' }}>
+                                    {errors.phone}
+                                </div>
+                            </div>
 
-                            <TextArea value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Enter message' />
+                            <div className="inp_cont">
+                                <TextArea
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    name='msg'
+                                    placeholder='Enter message' />
+                                <div style={{ color: 'red', fontSize: '10px' }}>
+                                    {errors.msg}
+                                </div>
+                            </div>
 
-                            <Button>
+                            <Button
+                                isLoading={loading}
+                                width='80%'
+                                height='50px'
+                                background='#ED5955'
+                                borderRadius='20px'
+                                color='#fff'
+                                display= 'flex'
+                                justifyContent='center'
+                                alignItems= 'center'
+                                fontWeight={600}
+                                fontSize='16px'
+                                outline='none'
+                                border= 'none'
+                                onClick={handleSubmit}
+                            >
                                 Submit
                             </Button>
                         </div>
@@ -161,7 +248,7 @@ const ContactUs = () => {
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
                                 center={coords}
-                                zoom={15}
+                                zoom={5}
                                 onLoad={onLoad}
                                 onUnmount={onUnmount}
                             >
