@@ -63,7 +63,7 @@ const Footer = () => {
                         <div className="footer_mobile" id='f_tter'>
                             <img src={Logo2} className='f_logo' />
                             <div className="logos_mobile">
-                                <a href="tel:063 260 2448">
+                                <a href="https://wa.me/27632602448">
                                     <img src={Wh} />
                                 </a>
                                 <a href="mailto:info@kleanique.co.za">
@@ -72,8 +72,9 @@ const Footer = () => {
                                 <a href="https://web.facebook.com/profile.php?id=100087360549776&mibextid=ZbWKwL&_rdc=1&_rdr">
                                     <img src={FB} />
                                 </a>
-
+                                <a href='https://www.google.com/maps?z=12&t=m&q=loc:-25.83611107578315+28.201622412276866'>
                                 <img src={Location} />
+                                </a>
 
                             </div>
                             <div className="mobile_num">063 260 2448</div>
