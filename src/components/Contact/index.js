@@ -106,8 +106,8 @@ const ContactUs = () => {
     };
 
     const center = {
-        lat: -3.745,
-        lng: -38.523
+        lat: -25.83611107578315,
+        lng: +28.201622412276866
     };
 
     const getLocation = () => {
@@ -117,7 +117,7 @@ const ContactUs = () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 const lat = position.coords.latitude
                 const long = position.coords.longitude
-                setCords({ lat, long })
+                // setCords({ lat, long })
             }, () => {
             });
         }
@@ -247,8 +247,8 @@ const ContactUs = () => {
                             <div className="address__">Our Physical Address</div>
                             <GoogleMap
                                 mapContainerStyle={containerStyle}
-                                center={coords}
-                                zoom={5}
+                                center={center}
+                                zoom={18}
                                 onLoad={onLoad}
                                 onUnmount={onUnmount}
                             >

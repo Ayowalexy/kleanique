@@ -76,15 +76,15 @@ const Commercial = () => {
 
                     <div className='c_services'>
                         {
-                            isLargerThan600 
-                            ?
-                            'Our commercial services cover a wide range of business-related cleaning services, ranging from offices, through to shop floors, mini-assembly outfits, storerooms, and premises used purely for commerce. In case of a monthly, quarterly, or bi-annual cleaning, we strongly recommend our deep cleaning services. However, bi-annual or annual cleaning services should be composed of afterwards disinfection or “nuisance treatment”, which is fondly referred to as “fumigation”.'
-                            :
-                            'Select your preferred service'
+                            isLargerThan600
+                                ?
+                                'Our commercial services cover a wide range of business-related cleaning services, ranging from offices, through to shop floors, mini-assembly outfits, storerooms, and premises used purely for commerce. In case of a monthly, quarterly, or bi-annual cleaning, we strongly recommend our deep cleaning services. However, bi-annual or annual cleaning services should be composed of afterwards disinfection or “nuisance treatment”, which is fondly referred to as “fumigation”.'
+                                :
+                                'Select your preferred service'
                         }
                     </div>
                     <div className='card_container c_bg'>
-                        <Image className='b_Image'  url={Image2} />
+                        <Image className='b_Image' url={Image2} />
                         <div className='card_box card__'>
                             <div className='card_header colored'>General Office cleaning Services</div>
                             <ul>
@@ -113,13 +113,13 @@ const Commercial = () => {
                                 Get a quote
                             </button>
                         </div>
-                        <Image className='b_Image'  url={Image4} />
+                        <Image className='b_Image' url={Image4} />
 
                     </div>
 
 
                     <div className='card_container c_bg'>
-                        <Image className='b_Image'  url={Image8} />
+                        <Image className='b_Image' url={Image8} />
                         <div className='card_box card__'>
                             <div className='card_header colored'>Shop Floor Services</div>
                             <ul>
@@ -152,16 +152,24 @@ const Commercial = () => {
 
                         <div className="project_box_container">
                             {
-                                [1, 2, 3].map(_ => (
+
+                                [
+                                    { text: 'The service felt like it was done by a family member. So much care and effort was put in.', name: 'Mr Joe' },
+                                    { text: 'I was a bit sceptical at first because affordable service sometimes come at a cost which would be a terrible service, but Kleanique offers value for money', name: 'Ms Maryke' },
+                                    { text: 'There are many cleaning services out there , I’ve tried a few and so far Kleanique has met my expectations , i will be reaching out again in the near future', name: 'Mr Amos' }
+                                ].map(_ => (
                                     <Box key={_} className='anime' id="anime_">
-                                        <div className="project_text_2_container">
+
+                                        <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
+
                                             <div>
-                                                I like the services of kleanique, the did a very good job in my home at walter’s time and even played good piece of music from Mr kanda                                    </div>
+                                                {_.text}
+                                            </div>
                                             <div className="rating">
                                                 {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
                                             </div>
                                             <div className="image_text_cont">
-                                                <div className="image_text">Mr Wakanda Walters</div>
+                                                <div className="image_text">{_.name}</div>
                                             </div>
 
                                         </div>

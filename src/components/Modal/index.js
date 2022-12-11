@@ -235,7 +235,7 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                             />
                                             <div style={{ color: 'red', fontSize: '15px' }}>
                                                 {!!errors.name && touched.name ? errors.name : null}
-                                                
+
                                             </div>
                                             <Input
                                                 onChange={handleChange}
@@ -294,7 +294,7 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                             {
                                                 !isLargerThan600 && (
                                                     <div className="modal_btn">
-                                                         <Button
+                                                        <Button
                                                             isLoading={loading}
                                                             onClick={handleSubmit}
                                                             style={{ backgroundColor: type !== 'commercial' ? '#ED5955' : '#4DBDEF' }}

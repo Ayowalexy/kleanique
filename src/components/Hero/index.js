@@ -45,7 +45,7 @@ const Hero = () => {
                     <div class="button button-2" onClick={() => navigate('/domestic')}>Get a quote</div>
                     {
                         isLargerThan600 && (
-                            <a aphref="#contact">
+                            <a href="#contact_2">
                                 <div class="button button-1" >Contact Us</div>
                             </a>
                         )

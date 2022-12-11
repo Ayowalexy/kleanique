@@ -38,9 +38,9 @@ const Footer = () => {
                                 <div className="f_image">
                                     <img src={Logo2} className='footer_image' />
                                 </div>
-                                <div className="footer_icon_cont">
-                                    <div className="footer_icon">
-                                        <a href="mailto:info@kleanique.co.za">
+                                <div >
+                                    <div >
+                                        <a className="footer_icon" style={{marginBottom: '20px'}} href="mailto:info@kleanique.co.za">
                                             <img src={Email} />
                                             <div>info@kleanique.co.za</div>
                                         </a>

@@ -144,26 +144,26 @@ const Project = () => {
                     {
                         [
                             { text: 'The service felt like it was done by a family member. So much care and effort was put in.', name: 'Mr Joe' },
-                            { text: 'I was a bit skeptical at first because affordable service sometimes come at a cost which will would be terrible service , but Kleanique offers value for money. ', name: 'Ms Maryke' },
+                            { text: 'I was a bit sceptical at first because affordable service sometimes come at a cost which would be a terrible service, but Kleanique offers value for money', name: 'Ms Maryke' },
                             { text: 'There are many cleaning services out there , I’ve tried a few and so far Kleanique has met my expectations , i will be reaching out again in the near future', name: 'Mr Amos' }
-                            ].map(_ => (
-                                <Box key={_} className='anime' id="anime_">
+                        ].map(_ => (
+                            <Box key={_} className='anime' id="anime_">
 
-                                    <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
+                                <div className="project_text_2_container">{!isLargerThan600 && (<div className="column">“</div>)}
 
-                                        <div>
-                                            {_.text}
-                                        </div>
-                                        <div className="rating">
-                                            {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
-                                        </div>
-                                        <div className="image_text_cont">
-                                            <div className="image_text">{_.name}</div>
-                                        </div>
-
+                                    <div>
+                                        {_.text}
                                     </div>
-                                </Box>
-                            ))
+                                    <div className="rating">
+                                        {[1, 2, 3, 4, 5].map(_ => <AiFillStar fill="#ED5955" key={_} />)}
+                                    </div>
+                                    <div className="image_text_cont">
+                                        <div className="image_text">{_.name}</div>
+                                    </div>
+
+                                </div>
+                            </Box>
+                        ))
                     }
                 </div>
             </div>
