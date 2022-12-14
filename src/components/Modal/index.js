@@ -207,16 +207,16 @@ const CModal = ({ name, type, active, setActive, image }) => {
                                         name === 'Spring Cleaning Services' && (
                                             <div className="data__">
                                                 <div >
-                                                    Spring-cleaning is typically done to remove any hidden or conspicuous dirt and stubborn stains – from ceiling-top to the ground, and the perimeter. It is meant to sparkle a surface, the entire house, surrounding or office:
+                                                Spring-cleaning is typically done to remove any hidden or conspicuous dirt and stubborn stains – from ceiling-top to the ground, and the perimeter. It is meant to sparkle a surface, the entire house, surrounding or office:
                                                 </div>
                                                 <div>
                                                     <ul>
-                                                        <li>Thorough dusting of the ceilingo</li>
-                                                        <li>Wall cleaningo</li>
-                                                        <li>Carpet and under-the-carpet cleaningo</li>
-                                                        <li>Floor dusting and cleaningo Surface polishingo</li>
-                                                        <li>Window cleaningo</li>
-                                                        <li>Doors, door handles and frame cleaningo</li>
+                                                        <li>Thorough dusting of the ceiling</li>
+                                                        <li>Wall cleaning</li>
+                                                        <li>Carpet and under-the-carpet cleaning</li>
+                                                        <li>Floor dusting and cleaningo Surface polishing</li>
+                                                        <li>Window cleaning</li>
+                                                        <li>Doors, door handles and frame cleaning</li>
                                                         <li>Kitchen dusting and mopping</li>
                                                     </ul>
                                                 </div>

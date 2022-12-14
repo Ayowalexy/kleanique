@@ -77,7 +77,7 @@ const Project = () => {
 
 
     return (
-        <div className="project_container" id="contact_2">
+        <div className="project_container" id="project_done">
             <div className="project_container_header" >Projects Done</div>
             {
                 isLargerThan600 && (<div className="project_container_text">Here are some cleaning service done for our clients in South Africa</div>)

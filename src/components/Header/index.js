@@ -33,8 +33,8 @@ const Header = () => {
                                             </NavDropdown.Item>
                                         </NavDropdown>
                                     </a>
-                                    <a href="#contact_2" className="link header_link" onClick={() => {
-                                        setPage('#contact_2')
+                                    <a href="#project_done" className="link header_link" onClick={() => {
+                                        setPage('#project_done')
                                         navigate('/')
                                     }}>Projects done</a>
                                     <a href="#contact" className="link header_link">Contact us</a>

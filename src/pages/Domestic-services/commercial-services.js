@@ -12,6 +12,7 @@ import Image2 from '../../assets/clean2.png'
 import Image7 from '../../assets/clean_7.png'
 import Image4 from '../../assets/clean_4.png'
 import Image8 from '../../assets/clean_6_.png'
+import Image9 from '../../assets/win.png'
 import Val from '../../assets/val.png';
 import Footer from '../../components/Footer';
 import { Box } from '../../components/Projects';
@@ -133,6 +134,23 @@ const Commercial = () => {
                                 Get a quote
                             </button>
                         </div>
+                    </div>
+
+                    <div className='card_container c_bg'>
+                        <div className='card_box _2'>
+                            <div className='card_header colored'>Window Cleaning</div>
+                            <ul>
+                                <li>
+                                We are specialize in high pressure purified water-base cleaning (interior and exterior), using soft brush on automated telescopic pole. We cover as much as thirteen-meter-high windows at affordable prices.
+                                </li>
+                                
+                            </ul>
+                            <button className='colored_bg' onClick={() => handleClick('Window Cleaning', Image9)}>
+                                Get a quote
+                            </button>
+                        </div>
+                        <Image className='b_Image' url={Image9} />
+
                     </div>
 
 

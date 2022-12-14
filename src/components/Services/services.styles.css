@@ -26,7 +26,6 @@
 .services .service_box {
     width: 423px;
     height: 408px;
-    cursor: pointer;
     background: #FFFFFF;
     border: 1px solid #6BC1E6;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -46,6 +45,7 @@
 .services .service_image {
     width: 350px;
     height: 232px;
+    cursor: pointer;
     left: 342.99px;
     top: 1164.78px;
     backdrop-filter: blur(2px);
@@ -121,7 +121,7 @@
     padding: 80px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .service_box_1 {
@@ -136,7 +136,7 @@
 
 
 .service_container_box {
-    width: 100%;
+    width: 85%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -167,7 +167,8 @@
 }
 
 .service_container .box_2 {
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    align-items: flex-end;
 }
 
 .service_middle {
